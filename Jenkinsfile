@@ -1,7 +1,4 @@
 #!groovy
-// This deployment script assumes that there is only a single Jenkins server (master) and there are no agents.
-// If the setup includes agents, then the stages should be reconfigured to take advantage of additional remote nodes.
-// This script is assuming that you're using a multi-branch project but the majority directly translates to a regular pipeline project.
 
 node {
     // It's often recommended to run a django project from a virtual environment.
