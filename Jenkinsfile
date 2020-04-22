@@ -26,9 +26,8 @@ node {
     // In this stage, you should first activate the virtual environment and then run through a pip install of the requirements file.
     stage ("Install Application Dependencies") {
         sh '''
-            source bin/activate
-            pip install -r chinook/requirements.txt
-            deactivate
+            . env/bin/activate
+            env/bin/pip install -r chinook/requirments.txt
            '''
     }
 
