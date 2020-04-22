@@ -10,7 +10,7 @@ node {
 
     if (!installed) {
         stage("Install Python Virtual Enviroment") {
-            sh 'virtualenv env .'
+            sh 'virtualenv env'
         }
     }
 
