@@ -8,6 +8,7 @@ stage('Checkout') {
        sh '''
         source ~/venv/bin/activate
         pip install -r requirments.txt
+
        '''
 
 
