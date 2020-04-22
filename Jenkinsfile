@@ -11,9 +11,9 @@ node {
         stage 'Test'
             sh 'virtualenv env -p python3.6'
             sh '. env/bin/activate'
-            sh 'pip install -r chinook/requirements.txt'
+            sh 'env/bin/pip install -r chinook/requirements.txt'
             sh 'pkill -9 python'
-            sh 'nohup python chinook/manage.py runserver &'
+            sh 'nohup env/bin/python3.6 chinook/manage.py runserver &'
 
 
         stage 'Publish results'
