@@ -1,35 +1,44 @@
 #!groovy
+// This deployment script assumes that there is only a single Jenkins server (master) and there are no agents.
+// If the setup includes agents, then the stages should be reconfigured to take advantage of additional remote nodes.
+// This script is assuming that you're using a multi-branch project but the majority directly translates to a regular pipeline project.
+
 node {
+    // It's often recommended to run a django project from a virtual environment.
+    // This way you can manage all of your depedencies without affecting the rest of your system.
+    def installed = fileExists 'bin/activate'
 
-    try {
-        stage 'Checkout'
-            checkout scm
-
-            sh 'git log HEAD^..HEAD --pretty="%h %an - %s" > GIT_CHANGES'
-            def lastChanges = readFile('GIT_CHANGES')
-
-        stage 'Test'
-             sh '''
-                virtualenv env
-                source env/bin/activate
-                pip install -r chinook/requirments.txt
-
-               '''
-//             sh 'virtualenv env -p python3.6'
-//             sh '. env/bin/activate'
-//             sh 'env/bin/pip install -r chinook/requirements.txt'
-//             sh 'pkill -9 python'
-//             sh 'nohup env/bin/python3.6 chinook/manage.py runserver &'
-
-
-        stage 'Publish results'
-            slackSend color: "good", message: "Build successful: `${env.JOB_NAME}#${env.BUILD_NUMBER}` <${env.BUILD_URL}|Open in Jenkins>"
+    if (!installed) {
+        stage("Install Python Virtual Enviroment") {
+            sh 'virtualenv --no-site-packages .'
+        }
     }
 
-    catch (err) {
-        slackSend color: "danger", message: "Build failed :face_with_head_bandage: \n`${env.JOB_NAME}#${env.BUILD_NUMBER}` <${env.BUILD_URL}|Open in Jenkins>"
-
-        throw err
+    // The stage below is attempting to get the latest version of our application code.
+    // Since this is a multi-branch project the 'checkout scm' command is used. If you're working with a standard
+    // pipeline project then you can replace this with the regular 'git url:' pipeline command.
+    // The 'checkout scm' command will automatically pull down the code from the appropriate branch that triggered this build.
+    stage ("Get Latest Code") {
+        checkout scm
     }
+
+    // If you're using pip for your dependency management, you should create a requirements file to store a list of all depedencies.
+    // In this stage, you should first activate the virtual environment and then run through a pip install of the requirements file.
+    stage ("Install Application Dependencies") {
+        sh '''
+            source bin/activate
+            pip install -r chinook/requirements.txt
+            deactivate
+           '''
+    }
+
+    // Typically, django recommends that all the static assets such as images and css are to be collected to a single folder and
+    // served separately outside the django application via apache or a CDN. This command will gather up all the static assets and
+    // ready them for deployment.
+
+
+    // After all of the dependencies are installed, you can start to run your tests.
+    // The code below assumes that you're using the django-jenkins python libary to run the test but you can
+    // also use the built in django test runner, nose or tox
 
 }
