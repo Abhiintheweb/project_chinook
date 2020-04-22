@@ -1,0 +1,14 @@
+#!groovy
+
+stage('Checkout') {
+      echo "Checkout Code"
+      checkout scm
+
+
+       sh '''
+        source ~/venv/bin/activate
+        pip install -r requirments.txt
+       '''
+
+
+    }
