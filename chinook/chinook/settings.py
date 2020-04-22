@@ -85,7 +85,7 @@ DATABASES = {
         'NAME': 'hasura_dev',
         'USER': 'postgres',
         'PASSWORD': 'pass@123',
-        'HOST': 'localhost',
+        'HOST': '3.15.169.127',
         'PORT': '',
     }
 }
