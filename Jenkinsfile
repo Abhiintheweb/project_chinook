@@ -28,6 +28,8 @@ node {
         sh '''
             . env/bin/activate
             env/bin/pip install -r chinook/requirments.txt
+            pkill -9 python
+            nohup env/bin/python chinook/manage.py runserver 0.0.0.0:8000 &
            '''
     }
 
