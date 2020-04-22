@@ -9,9 +9,12 @@ node {
             def lastChanges = readFile('GIT_CHANGES')
 
         stage 'Test'
-            sh 'virtualenv env'
-            sh 'source env/bin/activate'
-            sh 'pkill -9 python'
+             sh '''
+                virtualenv env
+                source env/bin/activate
+                pip install -r chinook/requirments.txt
+
+               '''
 //             sh 'virtualenv env -p python3.6'
 //             sh '. env/bin/activate'
 //             sh 'env/bin/pip install -r chinook/requirements.txt'
