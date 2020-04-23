@@ -9,4 +9,4 @@ router = routers.DefaultRouter()
 router.register('actors', ActorViewset)
 router.register('customers', CustomerViewset)
 
-urlpatterns = [path('', include(router.urls)),]
+urlpatterns = [path('', include(router.urls))]
