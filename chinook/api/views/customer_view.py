@@ -5,5 +5,6 @@ from  api.serializers import  CustomerSerializer
 
 
 class CustomerViewset(ModelViewSet):
+
     queryset = Customers.objects.all()
     serializer_class = CustomerSerializer
