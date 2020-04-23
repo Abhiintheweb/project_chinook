@@ -26,7 +26,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
+#just for testing
 # Application definition
 
 INSTALLED_APPS = [
