@@ -1,0 +1,29 @@
+2020-04-24 13:25:29,343 INFO supervisord started with pid 38983
+2020-04-24 13:25:30,349 INFO spawned: 'gunicorn' with pid 38989
+2020-04-24 13:25:31,602 INFO success: gunicorn entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-04-24 14:29:19,231 INFO supervisord started with pid 40020
+2020-04-24 14:29:20,240 INFO spawned: 'gunicorn' with pid 40025
+2020-04-24 14:29:21,417 INFO success: gunicorn entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-04-24 14:46:21,061 INFO supervisord started with pid 40847
+2020-04-24 14:46:22,066 INFO spawned: 'gunicorn' with pid 40854
+2020-04-24 14:46:22,074 INFO exited: gunicorn (exit status 127; not expected)
+2020-04-24 14:46:23,083 INFO spawned: 'gunicorn' with pid 40858
+2020-04-24 14:46:23,092 INFO exited: gunicorn (exit status 127; not expected)
+2020-04-24 14:46:25,102 INFO spawned: 'gunicorn' with pid 40860
+2020-04-24 14:46:25,112 INFO exited: gunicorn (exit status 127; not expected)
+2020-04-24 14:46:28,119 INFO spawned: 'gunicorn' with pid 40869
+2020-04-24 14:46:28,125 INFO exited: gunicorn (exit status 127; not expected)
+2020-04-24 14:46:29,126 INFO gave up: gunicorn entered FATAL state, too many start retries too quickly
+2020-04-24 14:46:50,853 INFO supervisord started with pid 40889
+2020-04-24 14:46:51,861 INFO spawned: 'gunicorn' with pid 40897
+2020-04-24 14:46:53,091 INFO success: gunicorn entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-04-24 14:47:06,434 INFO exited: gunicorn (terminated by SIGKILL; not expected)
+2020-04-24 14:47:07,440 INFO spawned: 'gunicorn' with pid 40923
+2020-04-24 14:47:08,728 INFO success: gunicorn entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-04-24 14:47:20,197 INFO exited: gunicorn (terminated by SIGKILL; not expected)
+2020-04-24 14:47:21,205 INFO spawned: 'gunicorn' with pid 40946
+2020-04-24 14:47:22,381 INFO success: gunicorn entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2020-04-24 14:51:02,772 INFO exited: gunicorn (terminated by SIGKILL; not expected)
+nohup: env/bin/python: No such file or directory
+2020-04-24 14:51:03,786 INFO spawned: 'gunicorn' with pid 41103
+2020-04-24 14:51:05,211 INFO success: gunicorn entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)

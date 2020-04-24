@@ -22,10 +22,12 @@ node {
     // If you're using pip for your dependency management, you should create a requirements file to store a list of all depedencies.
     // In this stage, you should first activate the virtual environment and then run through a pip install of the requirements file.
     stage ("Install Application Dependencies") {
+
         sh '''
             . env/bin/activate
             env/bin/pip install -r chinook/requirments.txt
-            pkill -9 python
+            a=$(ps ax | grep 8000 | grep python | awk '{print $1}')
+            kill -9 $a
             nohup env/bin/python chinook/manage.py runserver 0.0.0.0:8000 &
            '''
     }
