@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'c#02&$a442&mmrb0qr@)u3bx!mod-_hzqkv)*%=tl^geq#s5)l'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -143,7 +143,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
+
+STATIC_URL = 'https://cowrksnprod-staticswagger.s3.ap-south-1.amazonaws.com/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # LOGIN_REDIRECT_URL = 'api'
 # LOGIN_URL='home'
 LOGOUT_URL='logout'
