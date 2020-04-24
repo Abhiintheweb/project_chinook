@@ -27,7 +27,6 @@ node {
             . env/bin/activate
             env/bin/pip install -r chinook/requirments.txt
             a=$(ps ax | grep 8000 | grep python | awk '{print $1}')
-            sudo kill -9 $a
             nohup env/bin/python chinook/manage.py runserver 0.0.0.0:8000 &
            '''
     }
